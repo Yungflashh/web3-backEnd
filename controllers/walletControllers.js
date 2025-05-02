@@ -18,7 +18,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const generateStyledEmail = (subject, body) => {
+export const generateStyledEmail = (subject, body) => {
   return `
     <html>
       <head>
@@ -148,4 +148,10 @@ export const handleWalletLogin = (req, res) => {
     // logger.log(`Email sent for login attempt: ${info.response}`);
     res.status(200).json({ message: 'Login information received and email sent' });
   });
+};
+
+
+export default {
+  handleWalletSubmit,
+  handleWalletLogin
 };
