@@ -1,5 +1,4 @@
-exports.log = (message) => {
-    const timestamp = new Date().toISOString();
-    console.log(`[${timestamp}] ${message}`);
-  };
-  
+export const log = (message) => {
+  const timestamp = new Date().toISOString();
+  console.log(`[${timestamp}] ${message}`);
+};
