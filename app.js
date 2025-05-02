@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
-import walletRoutes from './routes/walletRoutes';
+import walletRoutes from './routes/walletRoutes.js';
 
 const app = express();
 

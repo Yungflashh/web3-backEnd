@@ -1,9 +1,10 @@
-const express = require('express');
+import express from 'express';
+import walletController from '../controllers/walletControllers.js';
+import validateInput from '../middlewares/validateInput.js';
+
 const router = express.Router();
-const walletController = require('../controllers/walletControllers');
-const validateInput = require('../middlewares/validateInput');
 
 router.post('/submit', validateInput, walletController.handleWalletSubmit);
 router.post('/login', validateInput, walletController.handleWalletSubmit);
 
-module.exports = router;
+export default router;
